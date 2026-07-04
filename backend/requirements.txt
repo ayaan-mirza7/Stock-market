@@ -1,0 +1,35 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+pydantic==2.9.0
+pydantic-settings==2.4.0
+httpx==0.27.0
+requests==2.32.0
+python-multipart==0.0.20
+
+# Authentication & Database
+pymongo==4.9.0
+bcrypt==4.1.2
+PyJWT==2.8.1
+python-dotenv==1.0.0
+email-validator==2.1.0
+
+# Optional ML/data dependencies for later expansion
+yfinance==0.2.52
+# pandas==2.2.3
+# numpy==2.1.0
+# scikit-learn==1.5.0
+# xgboost==2.1.0
+# lightgbm==4.3.0
+# catboost==1.4.0
+# tensorflow==2.16.0
+# torch==2.5.0
+# transformers==4.45.0
+# sentencepiece==0.2.1
+# joblib==1.4.0
+# redis==5.2.0
+# celery==5.4.0
+# psycopg2-binary==2.9.0
+# sqlalchemy==2.0.0
+# python-jose[cryptography]==3.8.0
+# passlib[bcrypt]==1.6.0
+scikit-learn==1.5.0
