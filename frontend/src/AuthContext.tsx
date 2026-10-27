@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
 interface User {
   id: string;
@@ -12,6 +12,7 @@ interface AuthContextType {
   token: string | null;
   login: (email: string, password: string) => Promise<void>;
   signup: (email: string, password: string, fullName: string) => Promise<void>;
+  continueAsGuest: () => void;
   logout: () => void;
   isLoading: boolean;
 }
@@ -105,6 +106,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   };
 
+  const continueAsGuest = () => {
+    setUser({
+      id: 'guest',
+      email: 'trader@stocksense.ai',
+      full_name: 'Guest Trader',
+      created_at: new Date().toISOString()
+    });
+    setToken('guest-session-token');
+  };
+
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -112,7 +123,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, signup, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, token, login, signup, continueAsGuest, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
